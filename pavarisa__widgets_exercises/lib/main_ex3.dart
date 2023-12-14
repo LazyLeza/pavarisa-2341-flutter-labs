@@ -28,7 +28,7 @@ class PetName extends StatelessWidget {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(20),
               child: Text(
                 name,
                 style: const TextStyle(color: Colors.white, fontSize: 20),
