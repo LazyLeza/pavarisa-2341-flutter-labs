@@ -7,6 +7,10 @@ class ChoiceWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ////////////////////////////////////////////////
+    bool isPortrait =
+        MediaQuery.of(context).orientation == Orientation.portrait;
+    ////////////////////////////////////////////////
     Color backgroundColor;
     Color textColor;
 
@@ -31,8 +35,10 @@ class ChoiceWidget extends StatelessWidget {
         color: backgroundColor,
         borderRadius: BorderRadius.circular(8),
       ),
+      ////////////////////////////////////////////////
       child: SizedBox(
-        width: 150, // Adjust the width as needed
+        width: isPortrait ? 150 : 300, // Adjust the width as needed
+        ////////////////////////////////////////////////
         height: 50, // Adjust the height as needed
         child: Center(
           child: Text(

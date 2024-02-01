@@ -14,19 +14,27 @@ class QuestionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ////////////////////////////////////////////////
+    bool isPortrait =
+        MediaQuery.of(context).orientation == Orientation.portrait;
     return Column(
       children: [
         Text(
           question,
           textAlign: TextAlign.center,
+          // ignore: prefer_const_constructors
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 100),
-        Image(image: image),
-        SizedBox(height: 100),
+        SizedBox(height: isPortrait ? 50 : 0),
+        Image(
+            image: image,
+            width: isPortrait ? double.infinity : null,
+            height: isPortrait ? 320 : 200),
+        SizedBox(height: isPortrait ? 50 : 0),
+        ////////////////////////////////////////////////
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -36,7 +44,7 @@ class QuestionWidget extends StatelessWidget {
                   .map((choice) => ChoiceWidget(choice: choice))
                   .toList(),
             ),
-            SizedBox(width: 20),
+            SizedBox(height: isPortrait ? 20 : 0),
             Column(
               children: choices
                   .sublist(2)
