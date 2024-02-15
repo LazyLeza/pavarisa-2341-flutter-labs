@@ -210,11 +210,24 @@ class ContactInfo extends StatelessWidget {
   }
 }
 
-class Rating extends StatelessWidget {
+class Rating extends StatefulWidget {
   final Color defaultColor;
   final Color ratingColor;
 
   const Rating({required this.defaultColor, required this.ratingColor});
+
+  @override
+  _RatingState createState() => _RatingState();
+}
+
+class _RatingState extends State<Rating> {
+  late List<Color> starColors;
+
+  @override
+  void initState() {
+    super.initState();
+    starColors = List.generate(5, (index) => widget.defaultColor);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -226,13 +239,52 @@ class Rating extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(
           5,
-          (index) => Icon(
-            Icons.star,
-            color: ratingColor,
-            size: 30,
+          (index) => GestureDetector(
+            onTap: () {
+              setState(() {
+                for (int i = 0; i <= index; i++) {
+                  starColors[i] = widget.ratingColor;
+                }
+                for (int i = index + 1; i < 5; i++) {
+                  starColors[i] = widget.defaultColor;
+                }
+              });
+            },
+            child: Icon(
+              Icons.star,
+              color: starColors[index],
+              size: 30,
+            ),
           ),
         ),
       ),
     );
   }
 }
+
+// class Rating extends StatelessWidget {
+//   final Color defaultColor;
+//   final Color ratingColor;
+
+//   const Rating({required this.defaultColor, required this.ratingColor});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     bool isPortrait =
+//         MediaQuery.of(context).orientation == Orientation.portrait;
+//     return Container(
+//       margin: isPortrait ? const EdgeInsets.all(40) : const EdgeInsets.all(5),
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: List.generate(
+//           5,
+//           (index) => Icon(
+//             Icons.star,
+//             color: ratingColor,
+//             size: 30,
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
