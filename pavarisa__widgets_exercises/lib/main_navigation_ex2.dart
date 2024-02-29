@@ -1,6 +1,5 @@
-// Import the QuestionPage file
 import 'package:flutter/material.dart';
-import 'app_screens/question_1.dart'; // Import your QuestionPage file
+import 'app_screens/question2_1.dart'; // Import your QuestionPage file
 
 void main() {
   runApp(QuizApp());
@@ -34,18 +33,18 @@ class WelcomePage extends StatelessWidget {
                     width: 200, // Adjust as needed
                     height: 200, // Adjust as needed
                   ),
-                  SizedBox(height: 20), // Spacer
+                  const SizedBox(height: 20), // Spacer
                   // Welcome text
-                  Text(
+                  const Text(
                     'Welcome to the Quiz App',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
                   ),
-                  SizedBox(height: 10), // Spacer
+                  const SizedBox(height: 10), // Spacer
                   // Name text
-                  Text(
+                  const Text(
                     'By Pavarisa Boonyaritchaikit, 643040234-1',
                     style: TextStyle(
                       color: Colors.pink,
@@ -55,7 +54,7 @@ class WelcomePage extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 30), // Spacer
+            const SizedBox(height: 30), // Spacer
             // Start button
             ElevatedButton(
               onPressed: () {
@@ -64,7 +63,7 @@ class WelcomePage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => QuizPage()),
                 );
               },
-              child: Text('Start'),
+              child: const Text('Start'),
             ),
           ],
         ),
