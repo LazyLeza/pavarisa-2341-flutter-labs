@@ -33,18 +33,18 @@ class WelcomePage extends StatelessWidget {
                     width: 200, // Adjust as needed
                     height: 200, // Adjust as needed
                   ),
-                  const SizedBox(height: 20), // Spacer
+                  SizedBox(height: 20), // Spacer
                   // Welcome text
-                  const Text(
+                  Text(
                     'Welcome to the Quiz App',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
                   ),
-                  const SizedBox(height: 10), // Spacer
+                  SizedBox(height: 10), // Spacer
                   // Name text
-                  const Text(
+                  Text(
                     'By Pavarisa Boonyaritchaikit, 643040234-1',
                     style: TextStyle(
                       color: Colors.pink,
@@ -54,7 +54,7 @@ class WelcomePage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 30), // Spacer
+            SizedBox(height: 30), // Spacer
             // Start button
             ElevatedButton(
               onPressed: () {
@@ -63,7 +63,7 @@ class WelcomePage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => QuizPage()),
                 );
               },
-              child: const Text('Start'),
+              child: Text('Start'),
             ),
           ],
         ),
